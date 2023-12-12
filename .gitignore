@@ -1,4 +1,4 @@
 *.iso
-.packer_cache/
 output/
+packer_cache/
 virtio-win/
