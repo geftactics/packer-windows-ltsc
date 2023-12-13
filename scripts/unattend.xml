@@ -10,21 +10,21 @@
                 <SkipUserOOBE>true</SkipUserOOBE>
                 <SkipMachineOOBE>true</SkipMachineOOBE>
             </OOBE>
-            <TimeZone>UTC</TimeZone>
+            <TimeZone>GMT Standard Time</TimeZone>
             <UserAccounts>
                 <AdministratorPassword>
-                    <Value>vagrant</Value>
+                    <Value>password</Value>
                     <PlainText>true</PlainText>
                 </AdministratorPassword>
             </UserAccounts>
             <AutoLogon>
                 <Password>
-                    <Value>vagrant</Value>
+                    <Value>password</Value>
                     <PlainText>true</PlainText>
                 </Password>
                 <Enabled>true</Enabled>
                 <LogonCount>1</LogonCount>
-                <Username>vagrant</Username>
+                <Username>Administrator</Username>
             </AutoLogon>
         </component>
     </settings>
