@@ -6,8 +6,8 @@
     "iso_url": "https://software-static.download.prss.microsoft.com/sg/download/444969d5-f34g-4e03-ac9d-1f9786c69161/19044.1288.211006-0501.21h2_release_svc_refresh_CLIENT_LTSC_EVAL_x64FRE_en-gb.iso",
     "memory": "8192",
     "name": "windows-10-ent-ltsc",
-    "winrm_password": "vagrant",
-    "winrm_username": "vagrant"
+    "winrm_password": "password",
+    "winrm_username": "Administrator"
   },
   "builders": [
     {
