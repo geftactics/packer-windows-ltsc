@@ -3,33 +3,15 @@
   hosts: all
 
   tasks:
-    - name: Enable Remote Desktop
-      ansible.windows.win_regedit:
-        path: 'HKLM:\System\CurrentControlSet\Control\Terminal Server'
-        name: fDenyTSConnections
-        data: 0
-        type: dword
-
-    - name: Allow connections from computers running any version of Remote Desktop (less secure)
-      ansible.windows.win_regedit:
-        path: 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp'
-        name: UserAuthentication
-        data: 0
-        type: dword
-
-    - name: Enable Firewall Inbound Rules Group
-      ansible.windows.win_shell: Enable-NetFirewallRule -DisplayGroup "{{ item }}"
-      loop:
-        - Remote Desktop
-        - Windows Remote Management
-
-    - name: Use the plaintext WinRM transport and force it to use basic authentication
-      ansible.windows.win_shell: winrm set winrm/config/service '@{AllowUnencrypted="true"}'
-
-    - name: Enable Administrator account
+    - name: Remove defaultuser0 account
       ansible.windows.win_user:
-        name: Administrator
-        account_disabled: no
+        name: defaultuser0
+        state: absent
+      when: ansible_distribution is search("Microsoft Windows 10")
+
+    - name: Enable Compact OS
+      ansible.windows.win_command: compact /compactos:always
+      changed_when: false
       when: ansible_distribution is search("Microsoft Windows 10")
 
     - name: Remove all current pagefiles
@@ -39,7 +21,7 @@
         state: absent
 
     - name: Disable Hibernate Mode
-      ansible.windows.win_command: powercfg -h off
+      ansible.windows.win_command: Powercfg /hibernate off
       changed_when: false
       when: ansible_distribution is search("Microsoft Windows 10")
 
@@ -61,6 +43,16 @@
         reboot: yes
         reboot_timeout: 10000
       register: windows_updates
+
+    - name: Clean up Component Store
+      ansible.windows.win_command: Dism.exe /online /Cleanup-Image /StartComponentCleanup
+      changed_when: false
+      when: ansible_distribution is search("Microsoft Windows 10")
+
+    - name: Reset Base Component Store 
+      ansible.windows.win_command: Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+      changed_when: false
+      when: ansible_distribution is search("Microsoft Windows 10")
 
     - name: Windows reboot
       ansible.windows.win_reboot:

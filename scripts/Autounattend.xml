@@ -113,7 +113,7 @@
                 <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
                 <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
                 <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
-                <NetworkLocation>Home</NetworkLocation>
+                <NetworkLocation>Work</NetworkLocation>
                 <ProtectYourPC>1</ProtectYourPC>
             </OOBE>
             <AutoLogon>
@@ -158,7 +158,6 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <!-- Rename computer here. -->
             <ComputerName>win10</ComputerName>
             <TimeZone>UTC</TimeZone>
             <RegisteredOwner/>
@@ -177,37 +176,7 @@
             <DisableAccelerators>true</DisableAccelerators>
             <DisableOOBAccelerators>true</DisableOOBAccelerators>
             <SuggestedSitesEnabled>false</SuggestedSitesEnabled>
-            <Home_Page>about:home</Home_Page>
-            <QuickLinkList>
-                <QuickLinkItem wcm:action="add">
-                    <QuickLinkName>Google</QuickLinkName>
-                    <QuickLinkUrl>http://www.google.com</QuickLinkUrl>
-                    <QLID>1</QLID>
-                </QuickLinkItem>
-            </QuickLinkList>
-            <SearchScopes>
-                <Scope wcm:action="add">
-                    <ScopeDefault>true</ScopeDefault>
-                    <ScopeDisplayName>Google</ScopeDisplayName>
-                    <ScopeKey>Google</ScopeKey>
-                    <ScopeUrl>http://www.google.com/search?q={searchTerms}</ScopeUrl>
-                </Scope>
-            </SearchScopes>
-        </component>
-        <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="neutral" name="Microsoft-Windows-TerminalServices-LocalSessionManager" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
-            <fDenyTSConnections>false</fDenyTSConnections>
-        </component>
-        <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="neutral" name="Microsoft-Windows-TerminalServices-RDP-WinStationExtensions" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
-            <UserAuthentication>0</UserAuthentication>
-        </component>
-        <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="neutral" name="Networking-MPSSVC-Svc" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
-            <FirewallGroups>
-                <FirewallGroup wcm:action="add" wcm:keyValue="RemoteDesktop">
-                    <Active>true</Active>
-                    <Group>Remote Desktop</Group>
-                    <Profile>all</Profile>
-                </FirewallGroup>
-            </FirewallGroups>
+            <Home_Page>about:blank</Home_Page>
         </component>
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" language="neutral" name="Microsoft-Windows-OutOfBoxExperience" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS">
             <DoNotOpenInitialConfigurationTasksAtLogon>true</DoNotOpenInitialConfigurationTasksAtLogon>
