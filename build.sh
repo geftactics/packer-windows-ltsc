@@ -12,4 +12,4 @@ if [[ ! -d "${VIRTIO_WIN_ISO_DIR}" ]]; then
     find "${VIRTIO_WIN_ISO_DIR}" -type d -exec chmod u+rwx {} \;
 fi
 
-PACKER_LOG=1 packer build windows.json
+PACKER_LOG=0 packer build windows.json
